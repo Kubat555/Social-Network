@@ -1,0 +1,37 @@
+
+.profileImg{
+    height: 100px;
+    width: 100px;
+    margin-right: 30px;
+}
+
+.content{
+    display: grid;
+    grid-template-columns: 3fr 9fr;
+}
+
+a.active{
+    color: rgb(69, 66, 235);
+}
+.dialogs{
+    background: white;
+    height: 600px;
+}
+
+.messageBlock{
+    display: flex;
+    justify-content: right;
+}
+
+.message{
+    display: inline-block;
+    max-width: 500px;
+    min-height: 10px;
+    background-color: rgb(94, 136, 250);
+    padding: 10px;
+    margin: 15px 5px;
+}
+
+.user{
+    background-color: rgb(71, 207, 89);
+}

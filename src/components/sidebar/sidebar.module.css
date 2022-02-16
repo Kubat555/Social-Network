@@ -1,0 +1,13 @@
+.sidebar{
+    grid-area: s;
+    background: darkslategrey;
+    padding: 20px;
+  }
+
+.element a{
+    color: white;
+  }
+  
+a.active{
+    color: rgb(185, 185, 185);
+  }
