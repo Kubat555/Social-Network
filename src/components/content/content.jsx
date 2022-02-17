@@ -1,12 +1,21 @@
+import React from 'react';
 import s from './content.module.css';
 // используем модульность стилей
 import Post from './posts/post';
+
 
 
 const Content = (props) => {
     let postElements = props.posts.map((s)=>{
         return <Post text={s.message} />
       })// Массив готового тега с данными
+
+    let newPostElement = React.createRef();
+
+    let addPost = ()=>{
+        let text = newPostElement.current.value;
+        alert(text);
+    }
 
     return(
         <div >
@@ -24,8 +33,8 @@ const Content = (props) => {
             <div className={s.postsBlock}>
                 <h3>My posts</h3>
                 <div className={s.addPosts}>
-                    <input type="text" />
-                    <button>Запостить</button>
+                    <input ref={newPostElement} type="text" />
+                    <button onClick={addPost} >Запостить</button>
                 </div>
                 <div className={s.posts}>
                     {postElements}

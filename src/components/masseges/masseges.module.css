@@ -35,3 +35,14 @@ a.active{
 .user{
     background-color: rgb(71, 207, 89);
 }
+
+.form input{
+    width: 80%;
+    height: 30px;
+}
+.form button{
+    width: 20%;
+    height: 30px;
+    background: black;
+    color: white;
+}

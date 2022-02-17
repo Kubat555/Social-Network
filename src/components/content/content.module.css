@@ -22,6 +22,19 @@
 
 .addPosts{
     margin: 15px 0;
+
+}
+.addPosts input{
+    width: 40%;
+    margin-right: 20px;
+    height: 30px;
+}
+
+.addPosts button{
+    width: 10%;
+    height: 30px;
+    background: black;
+    color: white;
 }
 
 .postsBlock{

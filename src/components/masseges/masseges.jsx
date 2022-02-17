@@ -1,3 +1,4 @@
+import React from 'react';
 import s from './masseges.module.css';
 import { NavLink } from 'react-router-dom';
 
@@ -38,13 +39,26 @@ const Messages = (props)=>{
         return <Message message={data.message} user={data.user} />
     })// Массив готового тега с данными
 
+    let newMessage = React.createRef();
+
+    let addMessage = ()=>{
+        let text = newMessage.current.value;
+        alert(text);
+    }
+
     return(
         <div className={s.content}>
             <div className={s.friends}>
                 {dialogsElements}
             </div>
-            <div className={s.dialogs}>
-                {messagesElements}
+            <div>
+                <div className={s.dialogs}>
+                    {messagesElements}
+                </div>
+                <div className={s.form}>
+                    <input ref={newMessage} type="text" />
+                    <button onClick={addMessage} >Отправить</button>
+                </div>
             </div>
         </div>
     )
