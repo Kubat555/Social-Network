@@ -39,7 +39,8 @@ const Messages = (props)=>{
         return <Message message={data.message} user={data.user} />
     })// Массив готового тега с данными
 
-    let newMessage = React.createRef();
+    let newMessage = React.createRef(); 
+    //Рефы дают возможность получить доступ к DOM-узлам или React-элементам, созданным в рендер-методе.
 
     let addMessage = ()=>{
         let text = newMessage.current.value;
@@ -56,7 +57,7 @@ const Messages = (props)=>{
                     {messagesElements}
                 </div>
                 <div className={s.form}>
-                    <input ref={newMessage} type="text" />
+                    <input ref={newMessage} type="text" /> 
                     <button onClick={addMessage} >Отправить</button>
                 </div>
             </div>
