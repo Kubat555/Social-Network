@@ -1,4 +1,5 @@
 import React from 'react';
+import { addPostAction } from '../../redux/state';
 import s from './content.module.css';
 // используем модульность стилей
 import Post from './posts/post';
@@ -14,7 +15,7 @@ const Content = (props) => {
 
     let addPost = ()=>{
         let text = newPostElement.current.value;
-        props.dispatch({type: "ADD-POST", post: text})
+        props.dispatch(addPostAction(text));
         newPostElement.current.value = "";
     }
 

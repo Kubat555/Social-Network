@@ -1,6 +1,8 @@
 import React from 'react';
 import s from './masseges.module.css';
 import { NavLink } from 'react-router-dom';
+import { updateNewMessageAction } from '../../redux/state';
+import { sendMessageAction } from './../../redux/state';
 
 
 const DialogItem = (props)=>{
@@ -32,19 +34,26 @@ const Message = (props)=>{
 
 const Messages = (props)=>{
     // Используем map чтобы создать новый массив преоброзовав старый
-    let dialogsElements = props.dialogs.map((data)=>{
+    let dialogsElements = props.dialogs.contacts.map((data)=>{
         return <DialogItem name={data.name} id={data.id} />
     })// Массив готового тега с данными
-    let messagesElements = props.messages.map((data)=>{
+    let messagesElements = props.dialogs.messages.map((data)=>{
         return <Message message={data.message} user={data.user} />
     })// Массив готового тега с данными
 
-    let newMessage = React.createRef(); 
+    // let newMessage = React.createRef(); 
     //Рефы дают возможность получить доступ к DOM-узлам или React-элементам, созданным в рендер-методе.
 
-    let addMessage = ()=>{
-        let text = newMessage.current.value;
-        alert(text);
+    
+    let NewMessageBody = props.dialogs.newMessageText.message;
+
+    let _updateText = (e)=>{
+        props.dispatch(updateNewMessageAction(e.target.value));
+    }
+
+    let sendMessage = ()=>{
+        // props.dispatch(updateNewMessageAction(newMessage.current.value));
+        props.dispatch(sendMessageAction());
     }
 
     return(
@@ -57,8 +66,8 @@ const Messages = (props)=>{
                     {messagesElements}
                 </div>
                 <div className={s.form}>
-                    <input ref={newMessage} type="text" /> 
-                    <button onClick={addMessage} >Отправить</button>
+                    <input value={NewMessageBody} placeholder='Enter your message' onChange={_updateText} type="text" /> 
+                    <button onClick={sendMessage} >Отправить</button>
                 </div>
             </div>
         </div>

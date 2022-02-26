@@ -4,3 +4,4 @@ import RerenderTree from './render';
 
 RerenderTree(store.getState());
 
+store.subscribe(RerenderTree);
