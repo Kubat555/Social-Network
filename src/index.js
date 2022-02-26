@@ -1,6 +1,6 @@
 import './index.css';
-import state from './redux/state';
+import store from './redux/state';
 import RerenderTree from './render';
 
-RerenderTree(state);
+RerenderTree(store.getState());
 

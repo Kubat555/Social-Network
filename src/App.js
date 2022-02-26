@@ -16,7 +16,7 @@ function App(props) {
         <Sidebar/>
         <div className='App-content'>
           <Routes>
-            <Route path='/profile' element={<Content posts = {props.dataState.posts} addPost={props.addPost} />}/>
+            <Route path='/profile' element={<Content posts = {props.dataState.posts} dispatch={props.dispatch} />}/>
             <Route path='/messages/*' element={<Messages dialogs={props.dataState.dialogs} messages ={props.dataState.messages} />}/>
           </Routes>
         </div>

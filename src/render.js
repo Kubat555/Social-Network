@@ -1,16 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { addPost } from './redux/state';
+import store from './redux/state';
 
 
 
  let RerenderTree = (state)=>{
+
   ReactDOM.render(
     <React.StrictMode>
-      <App dataState={state} addPost= {addPost} />
+      <App dataState={state} dispatch= {store.dispatch.bind(store)} />
     </React.StrictMode>,
-    document.getElementById('root')
+    document.getElementById('root') 
+
   );
 }
 
